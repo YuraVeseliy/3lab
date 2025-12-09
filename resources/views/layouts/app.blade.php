@@ -45,7 +45,7 @@
 
     <footer class="bg-dark text-white py-3 mt-5">
         <div class="container text-center">
-            <p class="mb-0">Лабораторная работа №3 - Laravel CRUD</p>
+            <p class="mb-1">Черных Юрий Александрович</p>
         </div>
     </footer>
 </body>
