@@ -80,14 +80,10 @@ class PlayerController extends Controller
 
     public function destroy(Player $player)
     {
-        // Удаляем изображение если есть
-        if ($player->image_path) {
-            Storage::disk('public')->delete($player->image_path);
-        }
-
+    // Мягкое удаление вместо полного
         $player->delete();
-
+    
         return redirect()->route('players.index')
-            ->with('success', 'Футболист успешно удален!');
+            ->with('success', 'Футболист перемещен в корзину');
     }
 }

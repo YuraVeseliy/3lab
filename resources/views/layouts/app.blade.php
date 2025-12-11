@@ -15,7 +15,15 @@
             </a>
             <div class="navbar-nav">
                 <a class="nav-link" href="{{ route('players.index') }}">Футболисты</a>
-                <a class="nav-link" href="{{ route('players.create') }}">Добавить футболиста</a>
+                <a href="{{ route('trash.index') }}" class="btn btn-outline-warning">
+                    <i class="bi bi-trash"></i> Корзина
+                    @php
+                        $trashCount = \App\Models\Player::onlyTrashed()->count();
+                    @endphp
+                    @if($trashCount > 0)
+                        <span class="badge bg-danger">{{ $trashCount }}</span>
+                    @endif
+                </a>
             </div>
         </div>
     </nav>
@@ -44,9 +52,9 @@
     </main>
 
     <footer class="bg-dark text-white py-3 mt-5">
-        <div class="container text-center">
+        <div class="container text-left">
             <p class="mb-1">Черных Юрий Александрович</p>
-        </div>
+        </div>  
     </footer>
 </body>
 </html>
